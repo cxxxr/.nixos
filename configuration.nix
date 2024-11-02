@@ -2,12 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+    ]
+    ++ [
+      inputs.xremap.nixosModules.default
     ];
 
   # Bootloader.
@@ -183,6 +186,24 @@
     enable = true;
     trustedInterfaces = ["tailscale0"];
     allowedUDPPorts = [config.services.tailscale.port];
+  };
+
+  services.xremap = {
+    userName = "user";
+    serviceMode = "system";
+    config = {
+      modmap = [
+        {
+          name = "replace CapsLock with Ctrl";
+          remap = {
+            CapsLock = "Ctrl_L";
+	    Alt_L = "Ctrl_L";
+	    SUPER_L = "Alt_L";
+	    CTRL_L = "SUPER_L";
+          };
+        }
+      ];
+    };
   };
 
   virtualisation = {
