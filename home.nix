@@ -11,3 +11,15 @@
     ./browser.nix
   ];
 }
+
+(pkgs, ...): {
+home.packages = with pkgs; [
+   bat
+   bottom
+   exa
+   httpie
+   pingu
+   ripgrep
+ ];
+}
+
