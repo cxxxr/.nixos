@@ -196,10 +196,11 @@
         {
           name = "replace CapsLock with Ctrl";
           remap = {
-            CapsLock = "Ctrl_L";
+            CapsLock = "ESC";
 	    Alt_L = "Ctrl_L";
 	    SUPER_L = "Alt_L";
 	    CTRL_L = "SUPER_L";
+	    ALT_R = "CTRL_R";
           };
         }
       ];
