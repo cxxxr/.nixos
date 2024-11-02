@@ -6,7 +6,7 @@
   };
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [
+  packages = with pkgs; [
     bat
     bottom
     exa
