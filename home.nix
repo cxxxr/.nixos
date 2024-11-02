@@ -6,6 +6,15 @@
   };
   programs.home-manager.enable = true;
 
+  home.packages = with pkgs; [
+    bat
+    bottom
+    exa
+    httpie
+    pingu
+    ripgrep
+  ];
+
   imports = [
     ./git.nix
     ./browser.nix
