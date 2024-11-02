@@ -6,17 +6,16 @@
   };
   programs.home-manager.enable = true;
 
-  packages = with pkgs; [
+  imports = [
+    ./git.nix
+    ./browser.nix
+  ];
+  home.packages = with pkgs; [
     bat
     bottom
     exa
     httpie
     pingu
     ripgrep
-  ];
-
-  imports = [
-    ./git.nix
-    ./browser.nix
   ];
 }
