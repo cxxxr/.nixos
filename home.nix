@@ -10,12 +10,4 @@
     ./git.nix
     ./browser.nix
   ];
-  home.packages = with pkgs; [
-    bat
-    bottom
-    exa
-    httpie
-    pingu
-    ripgrep
-  ];
 }
