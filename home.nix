@@ -8,6 +8,7 @@
 
   imports = [
     ./git.nix
+    ./development.nix
     ./browser.nix
   ];
 }
