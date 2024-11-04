@@ -104,6 +104,7 @@
     xsel
     openssl
     ncurses
+    mysql84
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
