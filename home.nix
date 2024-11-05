@@ -8,7 +8,8 @@
 
   imports = [
     ./git.nix
-    ./development.nix
+    ./misc.nix
     ./browser.nix
+    ./terminal.nix
   ];
 }

@@ -3,5 +3,6 @@
     gcc
     sbcl
     nodejs
+    tmux
   ];
 }
