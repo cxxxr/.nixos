@@ -87,7 +87,7 @@
   users.users.user = {
     isNormalUser = true;
     description = "user";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -228,4 +228,6 @@
       };
     };
   };
+
+  programs.light.enable = true;
 }
