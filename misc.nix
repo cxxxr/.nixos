@@ -7,5 +7,6 @@
     gnumake
     ncurses
     openssl
+    discord
   ];
 }
