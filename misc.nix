@@ -4,5 +4,8 @@
     sbcl
     nodejs
     tmux
+    gnumake
+    ncurses
+    openssl
   ];
 }
