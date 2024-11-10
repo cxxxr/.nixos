@@ -13,6 +13,8 @@
       inputs.xremap.nixosModules.default
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -26,6 +28,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  networking = {
+    nameservers = [ "8.8.8.8" "1.1.1.1" ];
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
