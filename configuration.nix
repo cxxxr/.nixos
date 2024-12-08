@@ -105,6 +105,7 @@
      noto-fonts-emoji
      nerdfonts
      plemoljp
+     xsel
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
