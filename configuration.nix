@@ -8,8 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ]
-    ++ [
       inputs.xremap.nixosModules.default
     ];
 
@@ -101,6 +99,12 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+     noto-fonts
+     noto-fonts-cjk-serif
+     noto-fonts-cjk-sans
+     noto-fonts-emoji
+     nerdfonts
+     plemoljp
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -196,6 +200,8 @@
           name = "replace CapsLock with Ctrl";
           remap = {
             CapsLock = "Ctrl_L";
+            Muhenkan = "Ctrl_L";
+            Henkan = "Alt_L";
           };
         }
       ];
