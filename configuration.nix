@@ -13,8 +13,6 @@
       inputs.xremap.nixosModules.default
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -29,15 +27,11 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  networking = {
-    nameservers = [ "8.8.8.8" "1.1.1.1" ];
-  };
-
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "ja_JP.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "ja_JP.UTF-8";
@@ -58,12 +52,9 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  services.xserver.displayManager.startx.enable = true;
-  #services.xserver.windowManager.stumpwm.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "jp";
     variant = "";
   };
 
@@ -110,16 +101,6 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    xsel
-    openssl
-    ncurses
-    mysql84
-    noto-fonts
-    noto-fonts-cjk-serif
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    nerdfonts
-    plemoljp
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -147,7 +128,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
   nix = {
     settings = {
@@ -199,7 +180,6 @@
     };
   };
 
-
   services.tailscale.enable = true;
   networking.firewall = {
     enable = true;
@@ -232,5 +212,4 @@
     };
   };
 
-  programs.light.enable = true;
 }
