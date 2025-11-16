@@ -10,5 +10,6 @@
     ./git.nix
     ./misc.nix
     ./wezterm.nix
+    ./tmux.nix
   ];
 }
