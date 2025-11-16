@@ -2,13 +2,17 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ];
+    ]
+    ++ (with inputs.nixos-hardware.nixosModules; [
+     common-cpu-amd
+     common-pc-ssd
+    ]);
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -130,6 +134,40 @@
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
+    };
+  };
+
+  programs = {
+    git = {
+      enable = true;
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true; # $EDITOR=nvimに設定
+      viAlias = true;
+      vimAlias = true;
+    };
+  };
+
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = [pkgs.fcitx5-mozc];
+  };
+
+  fonts = {
+    fonts = with pkgs; [
+      noto-fonts-cjk-serif
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+    ];
+    fontDir.enable = true;
+    fontconfig = {
+      defaultFonts = {
+        serif = ["Noto Serif CJK JP" "Noto Color Emoji"];
+        sansSerif = ["Noto Sans CJK JP" "Noto Color Emoji"];
+        monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
+        emoji = ["Noto Color Emoji"];
+      };
     };
   };
 }
