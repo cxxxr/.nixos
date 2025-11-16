@@ -133,7 +133,14 @@
 
   nix = {
     settings = {
+      auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
+    };
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
     };
   };
 
@@ -159,6 +166,7 @@
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
+      migu
     ];
     fontDir.enable = true;
     fontconfig = {
@@ -168,6 +176,51 @@
         monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
         emoji = ["Noto Color Emoji"];
       };
+
+     localConf = ''
+       <?xml version="1.0"?>
+       <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+       <fontconfig>
+         <description>Change default fonts for Steam client</description>
+         <match>
+           <test name="prgname">
+             <string>steamwebhelper</string>
+           </test>
+           <test name="family" qual="any">
+             <string>sans-serif</string>
+           </test>
+           <edit mode="prepend" name="family">
+             <string>Migu 1P</string>
+           </edit>
+         </match>
+       </fontconfig>
+     '';
     };
+  };
+
+  services.tailscale.enable = true;
+  networking.firewall = {
+    enable = true;
+    trustedInterfaces = ["tailscale0"];
+    allowedUDPPorts = [config.services.tailscale.port];
+  };
+
+  virtualisation = {
+    docker = {
+      enable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
+  };
+
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
   };
 }
