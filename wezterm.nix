@@ -5,5 +5,5 @@
     enable = true;
   };
 
-  home.file.".wezterm.lua".source = ./dot.wezterm.lua;
+  home.file.".wezterm.lua".source = ./dotfiles/.wezterm.lua;
 }
