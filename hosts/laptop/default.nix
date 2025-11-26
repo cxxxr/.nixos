@@ -9,8 +9,8 @@
   # Hostname
   networking.hostName = "laptop";
 
-  # Host ID will be generated on the actual laptop using: hostid
-  # networking.hostId = "xxxxxxxx";
+  # Host ID generated using: hostid
+  networking.hostId = "007f0200";
 
   # Laptop-specific configuration
   # For example:
