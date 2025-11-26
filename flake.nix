@@ -22,17 +22,17 @@
         };
       };
 
-      # Add more machines here as needed:
-      # laptop = inputs.nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   modules = [
-      #     ./configuration.nix
-      #     ./hosts/laptop
-      #   ];
-      #   specialArgs = {
-      #     inherit inputs;
-      #   };
-      # };
+      # Laptop configuration
+      laptop = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          ./hosts/laptop
+        ];
+        specialArgs = {
+          inherit inputs;
+        };
+      };
     };
     homeConfigurations = {
       myHome = inputs.home-manager.lib.homeManagerConfiguration {
