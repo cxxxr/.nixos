@@ -10,10 +10,24 @@
 
   outputs = inputs: {
     nixosConfigurations = {
-      myNixOS = inputs.nixpkgs.lib.nixosSystem {
+      # NucBox EVO-X2 configuration
+      nucbox = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+          ./hosts/nucbox
+        ];
+        specialArgs = {
+          inherit inputs;
+        };
+      };
+
+      # Laptop configuration
+      laptop = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          ./hosts/laptop
         ];
         specialArgs = {
           inherit inputs;

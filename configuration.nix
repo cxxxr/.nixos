@@ -5,11 +5,7 @@
 { inputs, config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ]
-    ++ (with inputs.nixos-hardware.nixosModules; [
+  imports = (with inputs.nixos-hardware.nixosModules; [
      common-cpu-amd
      common-pc-ssd
     ]);
@@ -18,7 +14,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  # Use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # networking.hostName is now defined in host-specific configuration (hosts/*/default.nix)
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -103,6 +102,8 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
     claude-code
+    dropbox
+    dropbox-cli
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
