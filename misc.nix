@@ -3,5 +3,6 @@
     tmux
     gnumake
     todoist-electron
+    codex
   ];
 }
