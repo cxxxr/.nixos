@@ -13,5 +13,6 @@
     ./tmux.nix
     ./scripts.nix
     ./direnv.nix
+    # ./codex.nix  # Temporarily disabled due to download error
   ];
 }

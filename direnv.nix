@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+  # Enable bash (required for direnv integration to work)
+  programs.bash = {
+    enable = true;
+  };
+
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
