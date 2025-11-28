@@ -12,5 +12,6 @@
     ./wezterm.nix
     ./tmux.nix
     ./scripts.nix
+    ./direnv.nix
   ];
 }
