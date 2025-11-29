@@ -104,6 +104,9 @@
     claude-code
     dropbox
     dropbox-cli
+    slack
+    xsel
+    zed-editor
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
