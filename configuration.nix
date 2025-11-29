@@ -105,6 +105,7 @@
     dropbox
     dropbox-cli
     slack
+    spotify
     xsel
     zed-editor
   ];

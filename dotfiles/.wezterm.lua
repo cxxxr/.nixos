@@ -7,7 +7,7 @@ config.initial_rows = 42
 
 config.hide_tab_bar_if_only_one_tab = true
 
-config.font_size = 15
+config.font_size = 11
 config.font = wezterm.font_with_fallback {
   'DejaVu Sans Mono',
   'Noto Sans Mono CJK JP',
