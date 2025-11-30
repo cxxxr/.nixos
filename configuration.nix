@@ -224,6 +224,9 @@
   services.flatpak.enable = true;
   xdg.portal.enable = true;
 
+  # Enable icon cache for system icons
+  gtk.iconCache.enable = true;
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
