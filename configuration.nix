@@ -104,6 +104,7 @@
     claude-code
     dropbox
     dropbox-cli
+    jq
     slack
     spotify
     xsel
