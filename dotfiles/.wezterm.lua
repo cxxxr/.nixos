@@ -15,6 +15,8 @@ config.font = wezterm.font_with_fallback {
   'Material Design Icons Desktop',
 }
 
+config.warn_about_missing_glyphs=false
+
 config.freetype_load_flags = 'NO_HINTING'          -- または 'TARGET_LIGHT'
 config.freetype_load_target = 'Normal'             -- 他に 'Light', 'Mono' なども試せます
 config.freetype_render_target = 'HorizontalLcd'    -- サブピクセルレンダリング
