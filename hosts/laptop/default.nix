@@ -19,4 +19,9 @@
   # - Touchpad configuration
   # - WiFi settings
   # - etc.
+
+  # 内蔵キーボードを無効化（外付けキーボード使用時）
+  #services.udev.extraRules = ''
+    #ATTRS{name}=="AT Translated Set 2 keyboard", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+  #'';
 }
