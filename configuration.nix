@@ -26,8 +26,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "none";  # Ignore DHCP-provided DNS
 
-  # Use reliable public DNS servers
+  # Use reliable public DNS servers only
   networking.nameservers = [
     "1.1.1.1"  # Cloudflare
     "8.8.8.8"  # Google
@@ -111,6 +112,7 @@
     dropbox
     dropbox-cli
     jq
+    python3
     slack
     spotify
     xsel
@@ -227,6 +229,8 @@
       };
     };
   };
+
+  services.ollama.enable = true;
 
   services.flatpak.enable = true;
   xdg.portal.enable = true;
