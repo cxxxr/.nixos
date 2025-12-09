@@ -26,13 +26,12 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "none";  # Ignore DHCP-provided DNS
 
-  # Use reliable public DNS servers only
-  networking.nameservers = [
-    "1.1.1.1"  # Cloudflare
-    "8.8.8.8"  # Google
-  ];
+  # Force static DNS configuration (bypasses resolvconf/DHCP completely)
+  environment.etc."resolv.conf".text = ''
+    nameserver 1.1.1.1
+    nameserver 8.8.8.8
+  '';
 
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
