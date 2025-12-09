@@ -116,6 +116,7 @@
     spotify
     xsel
     zed-editor
+    gemini-cli-bin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
