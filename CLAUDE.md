@@ -36,6 +36,7 @@ nix flake update
 - System-level programs/services go in `configuration.nix`
 - User-level dotfiles and packages go in home-manager modules (`git.nix`, `bash.nix`, `tmux.nix`, `wezterm.nix`, `direnv.nix`, `misc.nix`)
 - Custom scripts in `scripts/` are packaged via `scripts.nix`
+- Package overlays in `overlays/` for customizing nixpkgs packages (e.g., newer versions)
 
 **Key Design Decisions:**
 - Uses `nixpkgs-unstable` channel
@@ -43,3 +44,16 @@ nix flake update
 - fcitx5 with Mozc for Japanese input
 - Tailscale VPN enabled
 - Rootless Docker enabled
+
+## Overlays
+
+Overlays in `overlays/` customize nixpkgs packages. Currently:
+- `codex.nix` - OpenAI Codex CLI (newer version than nixpkgs)
+
+**Updating overlay packages:**
+1. Update `version` in the overlay file
+2. Update `hash` - run `nix-prefetch-url --unpack <github-tarball-url>` and convert to SRI format
+3. Set `cargoHash = ""` temporarily
+4. Run `home-manager build --flake .#myHome` to get the correct cargoHash from error
+5. Update `cargoHash` with the value from step 4
+6. Run `home-manager switch --flake .#myHome`

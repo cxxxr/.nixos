@@ -39,6 +39,7 @@
         pkgs = import inputs.nixpkgs {
           system = "x86_64-linux";
           config.allowUnfree = true;
+          overlays = [ (import ./overlays/codex.nix) ];
         };
         extraSpecialArgs = {
           inherit inputs;

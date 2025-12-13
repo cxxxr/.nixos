@@ -165,7 +165,7 @@
     };
     neovim = {
       enable = true;
-      defaultEditor = true; # $EDITOR=nvimに設定
+      defaultEditor = false;
       viAlias = true;
       vimAlias = true;
     };
