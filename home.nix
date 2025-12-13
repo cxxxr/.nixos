@@ -3,6 +3,9 @@
     username="user";
     homeDirectory = "/home/${username}";
     stateVersion = "25.05";
+    sessionVariables = {
+      EDITOR = "lem";
+    };
   };
   programs.home-manager.enable = true;
 
