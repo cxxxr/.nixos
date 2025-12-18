@@ -90,7 +90,7 @@
   users.users.user = {
     isNormalUser = true;
     description = "user";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -228,7 +228,19 @@
         setSocketVariable = true;
       };
     };
+
+    # KVM/QEMU仮想化
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        swtpm.enable = true;  # TPMエミュレーション
+      };
+    };
+    spiceUSBRedirection.enable = true;  # USB機器のパススルー
   };
+
+  programs.virt-manager.enable = true;
 
   services.ollama.enable = true;
 

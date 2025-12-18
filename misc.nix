@@ -5,6 +5,7 @@
     todoist-electron
     codex
     awscli2
+    uv
   ];
 
   home.sessionVariables = {
