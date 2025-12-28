@@ -3,6 +3,9 @@
     enable = true;
     userName = "cxxxr";
     userEmail = "g23tlm@gmail.com";
+    extraConfig = {
+      push.autoSetupRemote = true;
+    };
   };
 
   # GitHub CLI

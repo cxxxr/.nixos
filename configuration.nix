@@ -58,6 +58,9 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Disable auto-suspend on GDM login screen
+  services.displayManager.gdm.autoSuspend = false;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";

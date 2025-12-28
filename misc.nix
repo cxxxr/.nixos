@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   home.packages = with pkgs; [
     tmux
     gnumake
@@ -8,6 +8,7 @@
     ssm-session-manager-plugin
     aws-vault
     uv
+    inputs.llm-agents.packages.${pkgs.system}.spec-kit
   ];
 
   home.sessionVariables = {
