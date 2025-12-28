@@ -111,6 +111,7 @@
     dropbox
     dropbox-cli
     jq
+    obs-studio
     python3
     slack
     spotify
