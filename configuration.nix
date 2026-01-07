@@ -244,6 +244,7 @@
   };
 
   programs.virt-manager.enable = true;
+  programs.mosh.enable = true;
 
   services.ollama.enable = true;
 
