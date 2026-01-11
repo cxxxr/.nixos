@@ -16,12 +16,15 @@
     };
   };
 
-  outputs = inputs: {
+  outputs = inputs: let
+    zedOverlay = import ./overlays/zed-editor.nix;
+  in {
     nixosConfigurations = {
       # NucBox EVO-X2 configuration
       nucbox = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          { nixpkgs.overlays = [ zedOverlay ]; }
           ./configuration.nix
           ./hosts/nucbox
         ];
@@ -34,6 +37,7 @@
       laptop = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          { nixpkgs.overlays = [ zedOverlay ]; }
           ./configuration.nix
           ./hosts/laptop
         ];
