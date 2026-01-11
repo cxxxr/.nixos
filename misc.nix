@@ -4,6 +4,7 @@
     tmux
     gnumake
     todoist-electron
+    obsidian
     codex
     awscli2
     ssm-session-manager-plugin
