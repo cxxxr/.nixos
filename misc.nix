@@ -1,5 +1,7 @@
 {pkgs, inputs, ...}: {
   home.packages = with pkgs; [
+    openssl
+    libnotify
     nodejs
     tmux
     gnumake

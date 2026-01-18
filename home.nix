@@ -17,5 +17,6 @@
     ./scripts.nix
     ./bash.nix
     ./direnv.nix
+    ./niri.nix
   ];
 }

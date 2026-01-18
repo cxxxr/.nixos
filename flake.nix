@@ -14,6 +14,10 @@
       url = "github:oraios/serena";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: let
@@ -24,7 +28,8 @@
       nucbox = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          { nixpkgs.overlays = [ zedOverlay ]; }
+          { nixpkgs.overlays = [ zedOverlay inputs.niri.overlays.niri ]; }
+          inputs.niri.nixosModules.niri
           ./configuration.nix
           ./hosts/nucbox
         ];
@@ -37,7 +42,8 @@
       laptop = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          { nixpkgs.overlays = [ zedOverlay ]; }
+          { nixpkgs.overlays = [ zedOverlay inputs.niri.overlays.niri ]; }
+          inputs.niri.nixosModules.niri
           ./configuration.nix
           ./hosts/laptop
         ];

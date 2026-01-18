@@ -122,6 +122,15 @@
     xsel
     zed-editor
     gemini-cli-bin
+
+    # niri関連
+    alacritty              # ターミナル
+    fuzzel                 # アプリランチャー
+    swaylock               # スクリーンロック
+    mako                   # 通知デーモン
+    swayidle               # アイドル管理
+    xwayland-satellite     # XWayland対応
+    waybar                 # ステータスバー
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -173,6 +182,10 @@
       defaultEditor = false;
       viAlias = true;
       vimAlias = true;
+    };
+    niri = {
+      enable = true;
+      package = pkgs.niri-unstable;
     };
   };
 
