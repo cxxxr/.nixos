@@ -11,6 +11,7 @@
     awscli2
     ssm-session-manager-plugin
     aws-vault
+    terraform
     uv
     gopls
     nodePackages.typescript-language-server
