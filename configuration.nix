@@ -163,6 +163,9 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
+      # numtide cache for llm-agents
+      extra-substituters = ["https://cache.numtide.com"];
+      extra-trusted-public-keys = ["cache.numtide.com-1:bf2G5INdS+7rMDI0faZxfAv6Fc2LRgWkBv5cCxLMjE0="];
     };
 
     gc = {

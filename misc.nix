@@ -7,7 +7,7 @@
     gnumake
     todoist-electron
     obsidian
-    codex
+    inputs.llm-agents.packages.${pkgs.system}.codex
     awscli2
     ssm-session-manager-plugin
     aws-vault
