@@ -17,6 +17,7 @@
     nodePackages.typescript-language-server
     inputs.llm-agents.packages.${pkgs.system}.spec-kit
     inputs.serena.packages.${pkgs.system}.serena
+    ghostty
   ];
 
   home.sessionVariables = {

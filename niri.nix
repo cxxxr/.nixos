@@ -32,6 +32,10 @@
         focus-follows-mouse max-scroll-amount="0%"
     }
 
+    output "DP-6" {
+        scale 1.0
+    }
+
     output "eDP-1" {
         // scale 2.0
     }
@@ -98,7 +102,7 @@
     }
 
     window-rule {
-        match app-id=r#"^org\.wezfurlong\.wezterm$"#
+        match app-id=r#"^com\.mitchellh\.ghostty$"#
         default-column-width {}
     }
 
@@ -108,9 +112,9 @@
     }
 
     binds {
-        // ターミナル（wezterm）
-        Mod+T { spawn "wezterm"; }
-        Mod+Return { spawn "wezterm"; }
+        // ターミナル（ghostty）
+        Mod+T { spawn "ghostty"; }
+        Mod+Return { spawn "ghostty"; }
 
         // アプリランチャー
         Mod+D { spawn "fuzzel"; }
