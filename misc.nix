@@ -1,5 +1,6 @@
 {pkgs, inputs, ...}: {
   home.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
     openssl
     libnotify
     nodejs

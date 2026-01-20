@@ -212,9 +212,9 @@
         Mod+W { toggle-column-tabbed-display; }
 
         // スクリーンショット
-        Print { screenshot; }
-        Ctrl+Print { screenshot-screen; }
-        Alt+Print { screenshot-window; }
+        Mod+P { screenshot; }
+        Mod+Shift+Ctrl+P { screenshot-screen; }
+        Mod+Ctrl+P { screenshot-window; }
 
         // スクリーンロック
         Mod+Alt+L { spawn "swaylock"; }
@@ -227,6 +227,15 @@
 
         // パワーオフ確認
         Mod+Shift+Ctrl+T { quit skip-confirmation=true; }
+
+        // ボリューム制御
+        XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+        XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+        XF86AudioMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+
+        Mod+F12 { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+        Mod+F11 { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+        Mod+F10 { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     }
   '';
   };
