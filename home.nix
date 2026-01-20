@@ -18,5 +18,6 @@
     ./bash.nix
     ./direnv.nix
     ./niri.nix
+    ./llm-agents.nix
   ];
 }
