@@ -266,6 +266,30 @@
 
   services.ollama.enable = true;
 
+  # keyd - keyboard remapping
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+        settings = {
+          main = {
+            # CapsLock → Ctrl
+            capslock = "layer(control)";
+            # 左側: Alt → Ctrl, Ctrl → Super, Super → Alt
+            leftalt = "layer(control)";
+            leftcontrol = "layer(meta)";
+            leftmeta = "layer(alt)";
+            # 右側: Alt → Ctrl, Ctrl → Super, Super → Alt
+            rightalt = "layer(control)";
+            rightcontrol = "layer(meta)";
+            rightmeta = "layer(alt)";
+          };
+        };
+      };
+    };
+  };
+
   services.flatpak.enable = true;
   xdg.portal.enable = true;
 

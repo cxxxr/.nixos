@@ -37,7 +37,7 @@
     }
 
     output "eDP-1" {
-        // scale 2.0
+        scale 1.0
     }
 
     layout {
