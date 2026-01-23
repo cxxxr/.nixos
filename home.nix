@@ -20,5 +20,6 @@
     ./niri.nix
     ./waybar.nix
     ./llm-agents.nix
+    ./ghostty.nix
   ];
 }
