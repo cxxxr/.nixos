@@ -9,7 +9,7 @@
             xkb {
                 layout "us"
             }
-            repeat-delay 200
+            repeat-delay 300
             repeat-rate 50
         }
         touchpad {
